@@ -10,7 +10,7 @@ def menu_principal():
     print("5 - Filtrar")
     print("6 - Vizualizar indicadores")
     print("0 - sair")
-    opcao = ler_opcao(6)
+    opcao = ler_opcao(7)
     
     opcoes = {
         1: menu_cadastro(),
@@ -20,8 +20,10 @@ def menu_principal():
         5: menu_filtros(),
         6: indicadores(),
         0: sair()
-    }
-    
+        }
+        
+    opcoes.get(opcao)
+        
 def menu_cadastro():
     pass 
 def menu_listar():
@@ -41,7 +43,7 @@ def ler_opcao(qntd_opcoes):
     try:
         opcao = int(input("Escolha uma opção: "))
         if 0<= opcao <=qntd_opcoes:
-            return opcao # quero retornar a opcao e acessar o valor do dicionário 
+            return opcao
     except ValueError:
         pass
     print("Opção inválida! Aperte enter para avançar.")
