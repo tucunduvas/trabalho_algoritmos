@@ -1,4 +1,16 @@
 from util import limpar_tela
+from evento import cadastrar_evento
+from listar import listar_evento
+from listar import listar_participantes
+from listar import listar_participante 
+from alterar import alterar_participante
+from alterar import alterar_evento
+from remover import remover_evento 
+from remover import remover_participante
+from filtro import filtro_tema
+from filtro import filtro_mes
+from filtro import filtro_qntd_participantes
+from filtro import filtro_idade
 
 def menu_principal():
     limpar_tela()
@@ -25,19 +37,92 @@ def menu_principal():
     opcoes.get(opcao)
         
 def menu_cadastro():
-    pass 
+    limpar_tela()
+    print("__ Cadastrar __")
+    print(" 1 - Cadastrar evento")
+    print(" 2 - Voltar")
+    opcao = ler_opcao(2)
+    
+    opcoes = {
+        1: cadastrar_evento(),
+        2: None,
+    }
+    
+    opcoes.get(opcao)    
+    
 def menu_listar():
-    pass 
+    print("__Listar__")
+    print(" 1 - Ver informações do evento")
+    print("2 - Ver lista completa de participantes")
+    print("3- Ver informações de um único participante")
+    print("4 - Voltar")
+    opcao = ler_opcao(4)
+    
+    opcoes = {
+        1: listar_evento(),
+        2: listar_participantes(),
+        3: listar_participante(),
+        4: None
+    }
+    
+    opcoes.get(opcao)
+    
+    
 def menu_alterar():
-    pass 
+    print("__Alterações__")
+    print("1 - Alterar dados de um evento")
+    print("2 - Alterar dados de um participante")
+    print("3 - Voltar")
+    opcao = ler_opcao(3)
+    
+    opcoes = {
+        1: alterar_evento(),
+        2: alterar_participante(),
+        3: None
+    }
+    
+    opcoes.get(opcao)
+    
+    
 def menu_remocao():
-    pass 
+    print("__Remover__")
+    print("1 - Remover participante")
+    print("2 - Remover evento")
+    print("3 - Voltar")
+    opcao = ler_opcao(3)
+    
+    opcoes = {
+        1: remover_participante(),
+        2: remover_evento(),
+        3: None
+    }
+    
+    opcoes.get(opcao)
+    
 def menu_filtros():
-    pass 
+    print("__Filtros__")
+    print("1 - Filtrar os eventos por tema")
+    print("2 - Filtrar os eventos por mês")
+    print("3 - Filtrar os eventos por quantidade de participantes")
+    print("4 - Filtrar os participantes por idade")
+    print("4 - Voltar")
+    opcao = ler_opcao(4)
+    
+    opcoes = {
+        1: filtro_tema(),
+        2: filtro_mes(),
+        3: filtro_qntd_participantes(),
+        4: filtro_idade(),
+        5: None
+    }
+    
+    opcoes.get(opcao)
+    
 def indicadores():
     pass 
+
 def sair():
-    pass
+    exit()
 
 def ler_opcao(qntd_opcoes): 
     try:
