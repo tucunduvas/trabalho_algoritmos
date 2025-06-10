@@ -1,5 +1,5 @@
 from util import limpar_tela
-from evento import cadastrar_evento
+from eventoos import cadastrar_evento
 from listar import listar_evento
 from listar import listar_participantes
 from listar import listar_participante 
@@ -52,7 +52,7 @@ def menu_cadastro():
     
 def menu_listar():
     print("__Listar__")
-    print(" 1 - Ver informações do evento")
+    print(" 1 - Ver informações de eventos")
     print("2 - Ver lista completa de participantes")
     print("3- Ver informações de um único participante")
     print("4 - Voltar")
