@@ -20,30 +20,29 @@ def cadastrar_evento():
     while True:
         adicionar = input("Deseja adicionar um participante? (s/n): ").lower()
         if adicionar == 's':
-            participante = cadastrar_participantes(nome_evento)
+            participante = cadastrar_participantes(nome_evento, len(evento['participantes']))
             evento['participantes'].append(participante)
         else:
             break
     eventos.append(evento)
     
 def validar_data():
-    try:
-        data = int(input(datetime.date("Digite a data do evento, seguindo a estrutura dia/mês/ano em números: ")))
-        if len(data)==8: 
+    while True:
+        data = input("Digite a data do evento, seguindo a estrutura dia/mês/ano: ")
+        try:
+            datetime.datetime.strptime(data,'%d/%m/%Y')
             return data
-    except ValueError:
-        pass
-    print("Inválido! O campo data aceita apenas numeros no formato dia/mês/ano, tente novamente!")
-    return -1
+        except ValueError:
+            print("Inválido! O campo data aceita apenas numeros no formato dia mês ano, tente novamente!")
+
 
 def validar_cep():
-    try:
-        cep = int(input(("Digite o CEP, ultilizando apenas números: ")))
-        if len(cep)==8: 
-            return cep
-    except ValueError:
-        pass
-    print("Inválido! O campo CEP aceita apenas números, tente novamente!")
-    return -1
+    while True:
+        cep = input(("Digite o CEP, ultilizando apenas números: "))
+        try:
+            if len(cep)==8 and cep.isdigit(): 
+                return cep
+        except ValueError:
+            print("Inválido! O campo CEP aceita apenas números, tente novamente!")
 
 
