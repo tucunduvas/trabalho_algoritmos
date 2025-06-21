@@ -2,9 +2,7 @@ from util import limpar_tela
 from evento_registro import cadastrar_evento
 from listar import listar_evento
 from listar import listar_participantes
-from alterar import alterar_participante
-from alterar import alterar_evento
-from remover import remover_evento 
+import alterar as a
 from remover import remover_participante
 from filtro import filtro_tema
 from filtro import filtro_mes
@@ -12,6 +10,8 @@ from filtro import filtro_qntd_participantes
 from filtro import filtro_idade
 from entrada import ler_opcao
 from saida import sair
+from remover import remover_todos_eventos
+from remover import remover_evento_especifico
 
 def menu_principal():
     while True:
@@ -81,14 +81,12 @@ def menu_alterar():
     limpar_tela()
     print("__Alterações__")
     print("1 - Alterar dados de um evento")
-    print("2 - Alterar dados de um participante")
-    print("3 - Voltar")
-    opcao = ler_opcao(3)
+    print("2 - Voltar")
+    opcao = ler_opcao(2)
     
     opcoes = {
-        1: alterar_evento,
-        2: alterar_participante,
-        3: None
+        1: a.alterar_evento,
+        2: None
     }
     
     if opcoes.get(opcao):
@@ -99,14 +97,16 @@ def menu_remocao():
     limpar_tela()
     print("__Remover__")
     print("1 - Remover participante")
-    print("2 - Remover evento")
-    print("3 - Voltar")
-    opcao = ler_opcao(3)
+    print("2 - Remover evento específico")
+    print("3 - Remover todos os eventos")
+    print("4 - Voltar")
+    opcao = ler_opcao(4)
     
     opcoes = {
         1: remover_participante,
-        2: remover_evento,
-        3: None
+        2: remover_evento_especifico,
+        3: remover_todos_eventos,
+        4: None
     }
     
     if opcoes.get(opcao):

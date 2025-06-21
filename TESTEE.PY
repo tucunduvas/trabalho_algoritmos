@@ -12,3 +12,7 @@ i = 1
 for item in pessoas:
     i+= 1
     print(f"{i} - {item['nome']}")
+    
+la = {'oi': 1, 'tchau': 2}
+
+la.update

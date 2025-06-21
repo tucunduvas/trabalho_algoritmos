@@ -1,10 +1,11 @@
 from evento_registro import eventos
 from entrada import ler_opcao
 from saida import sair
-
+from util import limpar_tela
 
 
 def listar_evento():
+    limpar_tela()
     while True:
         print("___Qual evento deseja listar?___")
         print("1 - Todos")
@@ -32,6 +33,7 @@ def listar_evento():
         
 
 def listar_evento_especifico(evento):
+    limpar_tela()
     print(f"ID: {evento['id']}")
     print(f"Nome: {evento['nome']}")
     print(f"Nome: {evento['nome']}")
@@ -51,6 +53,7 @@ def listar_evento_especifico(evento):
             
 
 def listar_todos_eventos():
+    limpar_tela()
     for i,item in enumerate(eventos):
         print("__Evento {i}__")
         print(f"Id: {item['id']}")
@@ -70,6 +73,7 @@ def listar_todos_eventos():
                 print(f"Data de nascimento: {participante.get('data_nasc')}")
             
 def listar_participantes():
+    limpar_tela()
     for i in eventos:
         participantes = i.get('participantes', [])
         if participantes:
