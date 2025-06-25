@@ -60,20 +60,70 @@ def deseja_alterar(evento):
             
             
 def alterar_nome(evento):
-    print("1 - Sair")
-    print("2 - Voltar")
+    
     evento.update({'nome': input("Digite o nome:")})
     
+    print("1 - Sair")
+    print("2 - Voltar")
+    opcao = ler_opcao(2)
+    opcoes = {
+        1 : sair,
+        2: None,
+    }
+    if opcoes.get(opcao):
+        opcoes[opcao]()
+    
 def alterar_data(evento):
+    
     evento.update({'data': validar_data})
     
+    print("1 - Sair")
+    print("2 - Voltar")
+    opcao = ler_opcao(2)
+    opcoes = {
+        1 : sair,
+        2: None,
+    }
+    if opcoes.get(opcao):
+        opcoes[opcao]()
+        
 def alterar_rua(evento):
     endereco = evento.get('endereco')
     endereco.update({'rua': input("Digite a rua: ") })
     
+    print("1 - Sair")
+    print("2 - Voltar")
+    opcao = ler_opcao(2)
+    opcoes = {
+        1 : sair,
+        2: None,
+    }
+    if opcoes.get(opcao):
+        opcoes[opcao]()
+        
 def alterar_bairro(evento):
     endereco = evento.get('endereco')
     endereco.update({'bairro': input("Digite o bairro: ") })
     
+    print("1 - Sair")
+    print("2 - Voltar")
+    opcao = ler_opcao(2)
+    opcoes = {
+        1 : sair,
+        2: None,
+    }
+    if opcoes.get(opcao):
+        opcoes[opcao]()
+    
 def alterar_cep(evento):
     evento.update({'cep': validar_cep})
+    
+    print("1 - Sair")
+    print("2 - Voltar")
+    opcao = ler_opcao(2)
+    opcoes = {
+        1 : sair,
+        2: None,
+    }
+    if opcoes.get(opcao):
+        opcoes[opcao]()

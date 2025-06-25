@@ -26,7 +26,7 @@ def listar_evento():
             break
         
         if opcao >=3 and opcao<=len(eventos)+3:
-            listar_evento_especifico(eventos[opcao - 4])
+            listar_evento_especifico(eventos[opcao - 3])
 
         if opcoes.get(opcao):
                 opcoes[opcao]()
