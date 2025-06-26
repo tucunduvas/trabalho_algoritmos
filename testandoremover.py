@@ -12,10 +12,10 @@ for i in alunos:
     
 for i,j in enumerate(valores):
     print(f"{i} - {j}")
-    opcao = input("Digite qual aluno deseja remover: ")
-    
+
 def remover(opcao):
     del alunos[opcao]
-        
-        
-print(alunos)
+    print(alunos)
+opcao = int(input("Digite qual aluno deseja remover: "))
+remover(opcao)
+    
