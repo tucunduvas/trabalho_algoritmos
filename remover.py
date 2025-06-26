@@ -37,9 +37,8 @@ def remover_todos_eventos():
     print("Eventos removidos!")
     
 
-# def remover_evento_especifico():
-#     pass
-#     # del eventos[]
+def remover_evento_especifico(evento_escolhido):
+    del 
 
 def remover_participante():
     pass 
