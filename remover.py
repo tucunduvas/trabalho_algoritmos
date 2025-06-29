@@ -37,4 +37,22 @@ def remover_evento_especifico(indice):
     print(f"Evento '{nome}' removido com sucesso.")
     
 def remover_participante():
-    pass
+    limpar_tela()
+    encontrou_participante = False  
+
+    for evento in eventos:
+        participantes = evento.get('participantes', [])
+        if participantes:
+            encontrou_participante = True
+            print(f"\nEvento: {evento.get('nome', 'Sem nome')}")
+            for participante in participantes:
+                print(f"Nome: {participante.get('nome')}")
+                print(f"CPF: {participante.get('cpf')}")
+                print(f"Data de nascimento: {participante.get('data_nasc')}")
+                print("-" * 30)
+
+    if not encontrou_participante:
+        print("Nenhum participante cadastrado.")
+        
+    input("\nAperte a tecla Enter para voltar")
+

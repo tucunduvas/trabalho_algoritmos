@@ -9,7 +9,7 @@ def listar_evento():
 
     if not eventos:
         print("Nenhum evento cadastrado.")
-        input("\nPressione Enter para voltar...")
+        input("\nAperte a tecla Enter para voltar")
         return
 
     while True:
@@ -96,4 +96,4 @@ def listar_participantes():
     if not encontrou_participante:
         print("Nenhum participante cadastrado.")
         
-    input("\nPressione Enter para voltar...")
+    input("\nAperte a tecla Enter para voltar")
