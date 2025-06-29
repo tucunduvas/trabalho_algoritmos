@@ -39,6 +39,7 @@ def menu_mes():
             eventos_do_mes(opcao)
         
 def eventos_do_mes(mes):
+    limpar_tela()
     eventos_filtro = list(filter(lambda e: datetime.strptime(e['data'], "%d/%m/%Y").month == mes, eventos))
     if not eventos_filtro:
         print("Nenhum evento encontrado no mês.")
@@ -48,8 +49,18 @@ def eventos_do_mes(mes):
             print(f"Nome: {evento['nome']} | Data: {evento['data']}")
         input("Pressione a tecla Enter para retornar.")
 
+todos_participantes = []
+for evento in eventos:
+    todos_participantes.extend(evento['participantes'])
+    
 def menu_geracoes():
     while True: 
+        limpar_tela()
+        if not todos_participantes:
+            print("Nenhum participante cadastrado.")
+            input("\nAperte a tecla Enter para voltar")
+            return
+            
         print("Deseja ver os participantes de qual geração?")
         print(" 1 - Baby Boomers - Nascidos entre 1946 e 1964")
         print(" 2 - Geração X - Nascidos entre 1965 e 1980")
@@ -69,41 +80,72 @@ def menu_geracoes():
             6: None,
             7: sair, 
         }
+        if opcao == 6:
+            break
         
         if opcoes.get(opcao):
             opcoes[opcao]()
     
 
-
-todos_participantes = []
-for evento in eventos:
-    todos_participantes.extend(evento['participantes'])
-
 def genz():
+    limpar_tela()
     participantes_genz = list(filter(lambda p: 1997<=datetime.strptime(p['data_nasc'], "%d/%m/%Y").year<=2012, todos_participantes))
-    for p in participantes_genz:
-        print(p['nome'])
-    
+    if not participantes_genz: 
+        print("Nenhum participante da geração Z encontrado.")
+        input("Pressione a tecla Enter para retornar.")
+    else: 
+        print("Participantes Geração Z")
+        for p in participantes_genz:
+            print(f"{p['nome']} | {p['data_nasc']} | {p['evento_cadastrado']}" )
+        input("Pressione a tecla Enter para retornar.")
     
 def genx():
+    limpar_tela()
     participantes_genx = list(filter(lambda p: 1965<=datetime.strptime(p['data_nasc'], "%d/%m/%Y").year<=1980, todos_participantes))
-    for p in participantes_genx:
-        print(p['nome'])
+    if not participantes_genx: 
+        print("Nenhum participante da geração X encontrado.")
+        input("Pressione a tecla Enter para retornar.")
+    else:
+        print("Participantes Geração X")
+        for p in participantes_genx:
+            print(f"{p['nome']} | {p['data_nasc']} | {p['evento_cadastrado']}" )
+        input("Pressione a tecla Enter para retornar.")
 
 def alpha():
+    limpar_tela()
     participantes_alpha = list(filter(lambda p: 2012<datetime.strptime(p['data_nasc'], "%d/%m/%Y").year, todos_participantes))
-    for p in participantes_alpha:
-        print(p['nome'])
-
+    if not participantes_alpha: 
+        print("Nenhum participante da Geração Alpha encontrado.")
+        input("Pressione a tecla Enter para retornar.")
+    else:
+        print("Participantes Alpha")
+        for p in participantes_alpha:
+            print(f"{p['nome']} | {p['data_nasc']} | {p['evento_cadastrado']}" )
+        input("Pressione a tecla Enter para retornar.")
+    
 
 def millenials():
+    limpar_tela()
     participantes_millenials = list(filter(lambda p: 1981<=datetime.strptime(p['data_nasc'], "%d/%m/%Y").year<=1996, todos_participantes))
-    for p in participantes_millenials:
-        print(p['nome'])
+    if not participantes_millenials: 
+        print("Nenhum participante da geração Millenials encontrado.")
+        input("Pressione a tecla Enter para retornar.")
+    else:
+        print("Participantes Millenials ")
+        for p in participantes_millenials:
+            print(f"{p['nome']} | {p['data_nasc']} | {p['evento_cadastrado']}" )
+        input("Pressione a tecla Enter para retornar.")
     
 def babyboomers():
+    limpar_tela()
     participantes_babyboomers = list(filter(lambda p: 1946<=datetime.strptime(p['data_nasc'], "%d/%m/%Y").year<=1964, todos_participantes))
-    for p in participantes_babyboomers:
-        print(p['nome'])
+    if not participantes_babyboomers: 
+        print("Nenhum participante da geração Baby Boomers encontrado.")
+        input("Pressione a tecla Enter para retornar.")
+    else:
+        print("Participantes Baby Boomers")
+        for p in participantes_babyboomers:
+            print(f"{p['nome']} | {p['data_nasc']} | {p['evento_cadastrado']}" )
+        input("Pressione a tecla Enter para retornar.")
     
 
