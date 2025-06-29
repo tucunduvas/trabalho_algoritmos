@@ -6,6 +6,12 @@ from util import limpar_tela
 
 def listar_evento():
     limpar_tela()
+    
+    if not eventos:
+        print("Nenhum evento cadastrado.")
+        input("\nPressione Enter para voltar...")
+        return
+
     while True:
         print("___Qual evento deseja listar?___")
         print("1 - Todos")
@@ -16,20 +22,17 @@ def listar_evento():
             print(f"{i} - {item['nome']}")
         opcao = ler_opcao(len(eventos)+3)
         
-        opcoes = {
-            1: listar_todos_eventos, 
-            2: None,
-            3: sair,
-            }
-        
-        if opcao == 2:
+        if opcao == 1:
+            listar_todos_eventos()
+        elif opcao == 2:
             break
-        
-        if opcao >=3 and opcao<=len(eventos)+3:
-            listar_evento_especifico(eventos[opcao - 3])
-
-        if opcoes.get(opcao):
-                opcoes[opcao]()
+        elif opcao == 3:
+            sair()
+        elif 4 <= opcao <= len(eventos) + 3:
+            indice = opcao - 4
+            listar_evento_especifico(eventos[indice])
+        else:
+            print("Opção inválida.")
         
 
 def listar_evento_especifico(evento):

@@ -2,10 +2,90 @@ import datetime
 from participantes import cadastrar_participantes
 import uuid
 
+import uuid
 
 eventos = [
-    {}
+    {
+        'id': f"e{uuid.uuid4()}",
+        'nome': "Congresso de Tecnologia",
+        'data': "15/09/2025",
+        'endereço': {
+            'rua': "Rua das Inovações",
+            'bairro': "Centro Tech",
+            'cep': "12345-000"
+        },
+        'participantes': [
+            {
+                'id': f"p{uuid.uuid4()}",
+                'nome': "Alice Souza",
+                'cpf': "111.111.111-11",
+                'data_nasc': "01/01/1990",
+                'evento_cadastrado': "Congresso de Tecnologia"
+            },
+            {
+                'id': f"p{uuid.uuid4()}",
+                'nome': "Bruno Lima",
+                'cpf': "222.222.222-22",
+                'data_nasc': "12/05/1985",
+                'evento_cadastrado': "Congresso de Tecnologia"
+            }
+        ]
+    },
+    {
+        'id': f"e{uuid.uuid4()}",
+        'nome': "Feira de Startups",
+        'data': "20/10/2025",
+        'endereço': {
+            'rua': "Avenida Empreendedora",
+            'bairro': "Inova Bairro",
+            'cep': "54321-000"
+        },
+        'participantes': [
+            {
+                'id': f"p{uuid.uuid4()}",
+                'nome': "Carla Mendes",
+                'cpf': "333.333.333-33",
+                'data_nasc': "10/09/1992",
+                'evento_cadastrado': "Feira de Startups"
+            },
+            {
+                'id': f"p{uuid.uuid4()}",
+                'nome': "Daniel Rocha",
+                'cpf': "444.444.444-44",
+                'data_nasc': "22/03/1988",
+                'evento_cadastrado': "Feira de Startups"
+            }
+        ]
+    },
+    {
+        'id': f"e{uuid.uuid4()}",
+        'nome': "Encontro de Devs",
+        'data': "05/11/2025",
+        'endereço': {
+            'rua': "Rua do Código",
+            'bairro': "Bairro Dev",
+            'cep': "67890-000"
+        },
+        'participantes': [
+            {
+                'id': f"p{uuid.uuid4()}",
+                'nome': "Eduardo Tavares",
+                'cpf': "555.555.555-55",
+                'data_nasc': "07/07/1995",
+                'evento_cadastrado': "Encontro de Devs"
+            },
+            {
+                'id': f"p{uuid.uuid4()}",
+                'nome': "Fernanda Silva",
+                'cpf': "666.666.666-66",
+                'data_nasc': "30/11/1993",
+                'evento_cadastrado': "Encontro de Devs"
+            }
+        ]
+    }
 ]
+
+
 # uuid
 def cadastrar_evento():
     qntd_evento = len(eventos)
@@ -25,7 +105,7 @@ def cadastrar_evento():
     while True:
         adicionar = input("Deseja adicionar um participante? (s/n): ").lower()
         if adicionar == 's':
-            participante = cadastrar_participantes(nome_evento, len(evento['participantes']))
+            participante = cadastrar_participantes(nome_evento)
             evento['participantes'].append(participante)
         else:
             break

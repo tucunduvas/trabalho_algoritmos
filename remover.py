@@ -10,42 +10,31 @@ def remover_evento():
         print("1 - Todos")
         print("2 - Voltar")
         print("3 - Sair")
-        i = 3
-        for i,item in enumerate(eventos, start=4):
+        for i, item in enumerate(eventos, start=4):
             print(f"{i} - {item['nome']}")
-        opcao = ler_opcao(len(eventos)+3)
         
-        opcoes = {
-            1: remover_todos_eventos, 
-            2: None,
-            3: sair,
-            }
-        
-        if opcao == 2:
+        opcao = ler_opcao(len(eventos) + 3)
+
+        if opcao == 1:
+            remover_todos_eventos()
+        elif opcao == 2:
             break
-        
-        if opcao >=3 and opcao<=len(eventos)+3:
-            remover_evento_especifico(eventos[opcao - 4])
-    
-        if opcoes.get(opcao):
-                opcoes[opcao]()
-        
-        del eventos[opcao]
-        
+        elif opcao == 3:
+            sair()
+        elif 4 <= opcao <= len(eventos) + 3:
+            indice = opcao - 4
+            remover_evento_especifico(indice)
+        else:
+            print("Opção inválida.")
+
 def remover_todos_eventos():
     eventos.clear()
-    print("Eventos removidos!")
-    
+    print("Todos os eventos foram removidos!")
 
-def remover_evento_especifico(evento_escolhido):
-    del eventos[evento_escolhido]
-    
-
+def remover_evento_especifico(indice):
+    nome = eventos[indice]['nome']
+    del eventos[indice]
+    print(f"Evento '{nome}' removido com sucesso.")
     
 def remover_participante():
-    print("Qual participante deseja remover?")
-    print("2 - Voltar")
-    print("3 - Sair")
-    
-
-# se o evento tiver se 1 participante 
+    pass

@@ -12,6 +12,7 @@ from entrada import ler_opcao
 from saida import sair
 from remover import remover_todos_eventos
 from remover import remover_evento_especifico
+from remover import remover_evento
 
 def menu_principal():
     while True:
@@ -97,15 +98,13 @@ def menu_remocao():
     limpar_tela()
     print("__Remover__")
     print("1 - Remover participante")
-    print("2 - Remover evento específico")
-    print("3 - Remover todos os eventos")
+    print("2 - Remover eventos")
     print("4 - Voltar")
-    opcao = ler_opcao(4)
+    opcao = ler_opcao(3)
     
     opcoes = {
         1: remover_participante,
-        2: remover_evento_especifico,
-        3: remover_todos_eventos,
+        2: remover_evento,
         4: None
     }
     
