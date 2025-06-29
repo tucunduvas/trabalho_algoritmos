@@ -1,10 +1,11 @@
 from random import randint
 import datetime
+import uuid
 
 
-def cadastrar_participantes(nome_evento, total_participantes):
+def cadastrar_participantes(nome_evento):
     participante = {
-        'id': f"p{total_participantes}",
+        'id':  f"p{uuid.uuid4()}",
         'nome': input("Digite o nome do participante: "),
         'cpf': input("Digite o cpf do participante: "),
         'data_nasc': validacao_datanasc(),

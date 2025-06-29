@@ -43,6 +43,9 @@ def remover_evento_especifico(evento_escolhido):
 
     
 def remover_participante():
-    pass 
+    print("Qual participante deseja remover?")
+    print("2 - Voltar")
+    print("3 - Sair")
+    
 
 # se o evento tiver se 1 participante 

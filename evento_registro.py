@@ -1,12 +1,17 @@
 import datetime
 from participantes import cadastrar_participantes
-eventos = list()
+import uuid
+
+
+eventos = [
+    {}
+]
 # uuid
 def cadastrar_evento():
     qntd_evento = len(eventos)
     nome_evento = input("Digite o nome do evento: ")
     evento = {
-        'id': f"e{qntd_evento}",
+        'id': f"e{uuid.uuid4()}",
         'nome' : nome_evento,
         'data' : validar_data(),
         'endereço': {
