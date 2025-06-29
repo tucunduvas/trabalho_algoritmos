@@ -48,51 +48,62 @@ def eventos_do_mes(mes):
             print(f"Nome: {evento['nome']} | Data: {evento['data']}")
         input("Pressione a tecla Enter para retornar.")
 
+def menu_geracoes():
+    while True: 
+        print("Deseja ver os participantes de qual geração?")
+        print(" 1 - Baby Boomers - Nascidos entre 1946 e 1964")
+        print(" 2 - Geração X - Nascidos entre 1965 e 1980")
+        print(" 3 - Millennials - Nascidos entre 1981 e 1996")
+        print(" 4 - Geração Z - Nascidos entre 1997 e 2012")
+        print(" 5 - Geração Alpha - Nascidos a partir de 2013")
+        print(" 6 - Voltar")
+        print(" 7 - Sair")
+        opcao = ler_opcao(7)
+        
+        opcoes = {
+            1: babyboomers,
+            2: genx,
+            3: millenials,
+            4: genz,
+            5: alpha,
+            6: None,
+            7: sair, 
+        }
+        
+        if opcoes.get(opcao):
+            opcoes[opcao]()
+    
+
 
 todos_participantes = []
 for evento in eventos:
     todos_participantes.extend(evento['participantes'])
 
-def genz(participante):
-    data_nasc = datetime.strptime(participante['data_nasc'], "%d/%m/%Y")
-    return 2012>=data_nasc.year >= 1997
-
-
-participantes_genz = list(filter(genz, todos_participantes))
-
-for _ in participantes_genz:
-    print(_['nome'])
+def genz():
+    participantes_genz = list(filter(lambda p: 1997<=datetime.strptime(p['data_nasc'], "%d/%m/%Y").year<=2012, todos_participantes))
+    for p in participantes_genz:
+        print(p['nome'])
     
     
-def genx(participante):
-    data_nasc = datetime.strptime(participante['data_nasc'], "%d/%m/%Y")
-    return 1965<=data_nasc.year<=1980
+def genx():
+    participantes_genx = list(filter(lambda p: 1965<=datetime.strptime(p['data_nasc'], "%d/%m/%Y").year<=1980, todos_participantes))
+    for p in participantes_genx:
+        print(p['nome'])
+
+def alpha():
+    participantes_alpha = list(filter(lambda p: 2012<datetime.strptime(p['data_nasc'], "%d/%m/%Y").year, todos_participantes))
+    for p in participantes_alpha:
+        print(p['nome'])
 
 
-participantes_genx = list(filter(genx, todos_participantes))
-
-for _ in participantes_genx:
-    print(_['nome'])
+def millenials():
+    participantes_millenials = list(filter(lambda p: 1981<=datetime.strptime(p['data_nasc'], "%d/%m/%Y").year<=1996, todos_participantes))
+    for p in participantes_millenials:
+        print(p['nome'])
     
-def millenials(participante):
-    data_nasc = datetime.strptime(participante['data_nasc'], "%d/%m/%Y")
-    return 1981<=data_nasc.year<=1996
-
-
-participantes_millenials = list(filter(millenials, todos_participantes))
-
-for _ in participantes_millenials:
-    print(_['nome'])
-    
-    
-def babyboomers(participante):
-    data_nasc = datetime.strptime(participante['data_nasc'], "%d/%m/%Y")
-    return 1946<=data_nasc.year<=1964
-
-
-participantes_babyboomers = list(filter(babyboomers, todos_participantes))
-
-for _ in participantes_babyboomers:
-    print(_['nome'])
+def babyboomers():
+    participantes_babyboomers = list(filter(lambda p: 1946<=datetime.strptime(p['data_nasc'], "%d/%m/%Y").year<=1964, todos_participantes))
+    for p in participantes_babyboomers:
+        print(p['nome'])
     
 
