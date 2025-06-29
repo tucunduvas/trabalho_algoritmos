@@ -4,16 +4,16 @@ from listar import listar_evento
 from listar import listar_participantes
 import alterar as a
 from remover import remover_participante
-from filtro import filtro_tema
-from filtro import filtro_mes
-from filtro import filtro_qntd_participantes
-from filtro import filtro_idade
+# from filtro import filtro_tema
+# from filtro import filtro_mes
+# from filtro import filtro_qntd_participantes
+# from filtro import filtro_idade
 from entrada import ler_opcao
 from saida import sair
-from remover import remover_todos_eventos
-from remover import remover_evento_especifico
+# from remover import remover_todos_eventos
+# from remover import remover_evento_especifico
 from remover import remover_evento
-from listar import menu_mes
+from filtro import menu_mes
 
 def menu_principal():
     while True:
@@ -119,13 +119,10 @@ def menu_filtros():
     print("3 - Filtrar os eventos por quantidade de participantes")
     print("4 - Filtrar os participantes por geração")
     print("5 - Voltar")
-    opcao = ler_opcao(5)
+    opcao = ler_opcao(2)
     
     opcoes = {
-        1: filtro_tema,
         2: menu_mes,
-        3: filtro_qntd_participantes,
-        4: filtro_geracao,
         5: None
     }
     

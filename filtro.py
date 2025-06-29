@@ -34,62 +34,20 @@ def menu_mes():
         if opcao == 13:
             return
         elif opcao == 14:
-            sair
+            sair()
         else:
-            limpar_tela()
             eventos_do_mes(opcao)
         
 def eventos_do_mes(mes):
-    eventos_filtro = list(filter(lambda e: e['data'].month == mes, mes), eventos)
+    eventos_filtro = list(filter(lambda e: datetime.strptime(e['data'], "%d/%m/%Y").month == mes, eventos))
     if not eventos_filtro:
         print("Nenhum evento encontrado no mês.")
+        input("Pressione a tecla Enter para retornar.")
     else:
         for evento in eventos_filtro:
             print(f"Nome: {evento['nome']} | Data: {evento['data']}")
-        return
-# #mes 
-# def filtro_mes(data_str, mes):
-#     data = datetime.strptime(data_str, "%d/%m/%Y")
-#     return data.month == mes
+        input("Pressione a tecla Enter para retornar.")
 
-# def filtro_novembro():
-#     return list(filter(lambda e: filtro_mes(e['data'], 11), eventos))
-    
-# def filtro_janeiro():
-#     return list(filter(lambda e: filtro_mes(e['data'], 1), eventos))
-
-# def filtro_fevereiro():
-#     return list(filter(lambda e: filtro_mes(e['data'], 2), eventos))
-
-# def filtro_marco():
-#     return list(filter(lambda e: filtro_mes(e['data'], 3), eventos))
-
-# def filtro_abril():
-#     return list(filter(lambda e: filtro_mes(e['data'], 4), eventos))
-
-# def filtro_maio():
-#     return list(filter(lambda e: filtro_mes(e['data'], 5), eventos))
-
-# def filtro_junho():
-#     return list(filter(lambda e: filtro_mes(e['data'], 6), eventos))
-
-# def filtro_julho():
-#     return list(filter(lambda e: filtro_mes(e['data'], 7), eventos))
-
-# def filtro_agosto():
-#     return list(filter(lambda e: filtro_mes(e['data'], 8), eventos))
-
-# def filtro_setembro():
-#     return list(filter(lambda e: filtro_mes(e['data'], 9), eventos))
-
-# def filtro_outubro():
-#     return list(filter(lambda e: filtro_mes(e['data'], 10), eventos))
-
-# def filtro_dezembro():
-#     return list(filter(lambda e: filtro_mes(e['data'], 12), eventos))
-
-
-#geracoes
 
 todos_participantes = []
 for evento in eventos:
