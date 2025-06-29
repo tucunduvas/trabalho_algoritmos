@@ -3,7 +3,7 @@ from evento_registro import eventos
 from entrada import ler_opcao
 from saida import sair 
 
-def remover_evento_especifico():
+def remover_evento():
     limpar_tela()
     while True:
         print("___Qual evento deseja remover?___")
@@ -38,8 +38,10 @@ def remover_todos_eventos():
     
 
 def remover_evento_especifico(evento_escolhido):
-    del 
+    del eventos[evento_escolhido]
+    
 
+    
 def remover_participante():
     pass 
 
