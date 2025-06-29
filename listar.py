@@ -6,7 +6,7 @@ from util import limpar_tela
 
 def listar_evento():
     limpar_tela()
-    
+
     if not eventos:
         print("Nenhum evento cadastrado.")
         input("\nPressione Enter para voltar...")
@@ -46,13 +46,16 @@ def listar_evento_especifico(evento):
         print(f"Rua: {endereco.get('rua')}")
         print(f"Bairro: {endereco.get('bairro')}")
         print(f"CEP: {endereco.get('cep')}")
-    print("__Participantes__")
+        print("-" * 30)
+    print("Participantes")
     participantes = evento.get('participantes', [])
     if participantes:
         for participante in participantes:
             print(f"Nome: {participante.get('nome')}")
             print(f"CPF: {participante.get('cpf')}")
             print(f"Data de nascimento: {participante.get('data_nasc')}")
+            print("-" * 30)
+
             
 
 def listar_todos_eventos():
@@ -77,12 +80,20 @@ def listar_todos_eventos():
             
 def listar_participantes():
     limpar_tela()
-    for i in eventos:
-        participantes = i.get('participantes', [])
+    encontrou_participante = False  
+
+    for evento in eventos:
+        participantes = evento.get('participantes', [])
         if participantes:
-            for participante in participantes: 
+            encontrou_participante = True
+            print(f"\nEvento: {evento.get('nome', 'Sem nome')}")
+            for participante in participantes:
                 print(f"Nome: {participante.get('nome')}")
                 print(f"CPF: {participante.get('cpf')}")
                 print(f"Data de nascimento: {participante.get('data_nasc')}")
+                print("-" * 30)
 
-
+    if not encontrou_participante:
+        print("Nenhum participante cadastrado.")
+        
+    input("\nPressione Enter para voltar...")

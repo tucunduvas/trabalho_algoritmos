@@ -24,8 +24,9 @@ def alterar_evento():
         if opcao == 2:
             break
         
-        if 2<opcao>=len(eventos)-2:
-            deseja_alterar(eventos[opcao-2])
+        if opcao >= 3 and opcao < len(eventos) + 3:
+            deseja_alterar(eventos[opcao - 3])
+
             
         if opcoes.get(opcao):
                 opcoes[opcao]()
@@ -56,12 +57,13 @@ def deseja_alterar(evento):
         }
         
         if opcoes.get(opcao):
-            opcoes[opcao]()
+            opcoes[opcao](evento)
             
             
 def alterar_nome(evento):
     
     evento.update({'nome': input("Digite o nome:")})
+    print("Alteração realizada com sucesso.")
     
     print("1 - Sair")
     print("2 - Voltar")
@@ -71,11 +73,12 @@ def alterar_nome(evento):
         2: None,
     }
     if opcoes.get(opcao):
-        opcoes[opcao]()
+        opcoes[opcao](evento)
     
 def alterar_data(evento):
-    
-    evento.update({'data': validar_data})
+    limpar_tela()
+    evento.update({'data': validar_data()})
+    print("Alteração realizada com sucesso.")
     
     print("1 - Sair")
     print("2 - Voltar")
@@ -85,11 +88,13 @@ def alterar_data(evento):
         2: None,
     }
     if opcoes.get(opcao):
-        opcoes[opcao]()
+        opcoes[opcao](evento)
         
 def alterar_rua(evento):
-    endereco = evento.get('endereco')
+    limpar_tela()
+    endereco = evento.get('endereço')
     endereco.update({'rua': input("Digite a rua: ") })
+    print("Alteração realizada com sucesso.")
     
     print("1 - Sair")
     print("2 - Voltar")
@@ -99,12 +104,13 @@ def alterar_rua(evento):
         2: None,
     }
     if opcoes.get(opcao):
-        opcoes[opcao]()
+        opcoes[opcao](evento)
         
 def alterar_bairro(evento):
-    endereco = evento.get('endereco')
+    limpar_tela()
+    endereco = evento.get('endereço')
     endereco.update({'bairro': input("Digite o bairro: ") })
-    
+    print("Alteração realizada com sucesso.")
     print("1 - Sair")
     print("2 - Voltar")
     opcao = ler_opcao(2)
@@ -113,11 +119,12 @@ def alterar_bairro(evento):
         2: None,
     }
     if opcoes.get(opcao):
-        opcoes[opcao]()
+        opcoes[opcao](evento)
     
 def alterar_cep(evento):
-    evento.update({'cep': validar_cep})
-    
+    limpar_tela()
+    evento['endereco'].update({'cep': validar_cep()}) 
+    print("Alteração realizada com sucesso.")
     print("1 - Sair")
     print("2 - Voltar")
     opcao = ler_opcao(2)
@@ -126,4 +133,4 @@ def alterar_cep(evento):
         2: None,
     }
     if opcoes.get(opcao):
-        opcoes[opcao]()
+        opcoes[opcao](evento)
