@@ -26,7 +26,7 @@ def menu_principal():
         print("3 - Alterar informações")
         print("4 - Remover")
         print("5 - Filtrar")
-        print("6 - Vizualizar indicadores")
+        print("6 - Visualizar indicadores")
         print("0 - sair")
         opcao = ler_opcao(7)
         

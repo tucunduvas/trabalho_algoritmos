@@ -36,61 +36,52 @@ def remover_evento_especifico(indice):
     del eventos[indice]
     print(f"Evento '{nome}' removido com sucesso.")
     
-            
-def remover_participante(indice):
+def remover_participante(opcao, lista):
     limpar_tela()
-    for evento in eventos:
-        participantes = evento.get('participantes', [])
-    nome = participantes[indice]['nome']
-    del participantes[indice]
+    evento, indice = lista[opcao - 3]
+    nome = evento['participantes'][indice]['nome']
+    del evento['participantes'][indice]
     print(f"Participante '{nome}' removido com sucesso.")
-    
-    # encontrou_participante = False  
+    input("\nAperte Enter para continuar")
 
-    # for evento in eventos:
-    #     participantes = evento.get('participantes', [])
-    #     if participantes:
-    #         encontrou_participante = True
-    #         print(f"\nEvento: {evento.get('nome', 'Sem nome')}")
-    #         for participante in participantes:
-    #             print(f"Nome: {participante.get('nome')}")
-    #             print(f"CPF: {participante.get('cpf')}")
-    #             print(f"Data de nascimento: {participante.get('data_nasc')}")
-    #             print("-" * 30)
-
-    # if not encontrou_participante:
-    #     print("Nenhum participante cadastrado.")
-        
-    # input("\nAperte a tecla Enter para voltar")
-
-def remover_participante_menu():   
+def remover_participante_menu():
     while True:
-            print("___Qual participante deseja remover?___")
-            print("1 - Voltar")
-            print("2 - Sair")
-            encontrou_participante = False  
-            for evento in eventos:
-                participantes = evento.get('participantes', [])
-                if participantes:
-                    encontrou_participante = True
-                for i, item in enumerate(participantes, start=2):
-                    print(f"{i} - {item['nome']}")
-            if not encontrou_participante:
-                print("Nenhum participante cadastrado.")
-            input("\nAperte a tecla Enter para voltar")
-            
-            opcao = ler_opcao(len(eventos) + 3)
+        limpar_tela()
+        print("___Qual participante deseja remover?___")
+        print("1 - Voltar")
+        print("2 - Sair")
+        lista_participantes = []
+        contador = 3
 
-            if opcao == 1:
-                break
-            elif opcao == 2:
-                sair()
-            elif opcao == 3:
-                sair()
-            elif 4 <= opcao <= len(participantes) + 3:
-                indice = opcao - 2
-                remover_participante(indice)
-            else:
-                print("Opção inválida.")
+        # Listar todos os participantes de todos os eventos
+        for evento in eventos:
+            participantes = evento.get('participantes', [])
+            for i, participante in enumerate(participantes):
+                print(f"{contador} - {participante['nome']} (Evento: {evento['nome']})")
+                lista_participantes.append((evento, i))
+                contador += 1
+
+        if not lista_participantes:
+            print("Nenhum participante cadastrado.")
+            input("Pressione Enter para voltar")
+            break  # Sai do menu se não houver participantes
+
+        try:
+            opcao = int(input("Escolha uma opção: "))
+        except ValueError:
+            print("Opção inválida.")
+            input("Pressione Enter para continuar")
+            continue
+
+        if opcao == 1:
+            break
+        elif opcao == 2:
+            sair()
+        elif 3 <= opcao < contador:
+            remover_participante(opcao, lista_participantes)
+        else:
+            print("Opção inválida.")
+            input("Pressione Enter para continuar")
+
 
 
