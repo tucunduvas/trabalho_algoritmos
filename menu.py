@@ -16,7 +16,8 @@ from remover import remover_evento
 from filtro import menu_mes
 from filtro import menu_geracoes
 from indicadores import mostrar_indicadores
-
+from participantes import cadastrar_participante_evento
+from evento_registro import eventos
 def menu_principal():
     while True:
         limpar_tela()
@@ -49,15 +50,17 @@ def menu_cadastro():
         limpar_tela()
         print("__ Cadastrar __")
         print(" 1 - Cadastrar evento")
-        print(" 2 - Voltar")
-        opcao = ler_opcao(2)
+        print(" 2 - Cadastrar participante")
+        print(" 3 - Voltar")
+        opcao = ler_opcao(3)
         
         opcoes = {
             1: cadastrar_evento,
-            2: None,
+            2: lambda: cadastrar_participante_evento(eventos),
+            3: None,
         }
         
-        if opcao == 2:
+        if opcao == 3:
             break
         
         if opcoes.get(opcao):

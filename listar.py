@@ -13,6 +13,7 @@ def listar_evento():
         return
 
     while True:
+        print(" ")
         print("___Qual evento deseja listar?___")
         print("1 - Todos")
         print("2 - Voltar")
@@ -37,8 +38,8 @@ def listar_evento():
 
 def listar_evento_especifico(evento):
     limpar_tela()
+    print(" ")
     print(f"ID: {evento['id']}")
-    print(f"Nome: {evento['nome']}")
     print(f"Nome: {evento['nome']}")
     print(f"Data: {evento['data']}")
     endereco = evento.get('endereço')
@@ -61,6 +62,7 @@ def listar_evento_especifico(evento):
 def listar_todos_eventos():
     limpar_tela()
     for i,item in enumerate(eventos):
+        print(" ")
         print("__Evento {i}__")
         print(f"Id: {item['id']}")
         print(f"Nome: {item['nome']}")
@@ -87,6 +89,7 @@ def listar_participantes():
         participantes = evento.get('participantes', [])
         if participantes:
             encontrou_participante = True
+            print(" ")
             print(f"\nEvento: {evento.get('nome', 'Sem nome')}")
             for participante in participantes:
                 print(f"Nome: {participante.get('nome')}")

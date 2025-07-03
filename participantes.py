@@ -1,7 +1,7 @@
 from random import randint
 import datetime
 import uuid
-
+from entrada import ler_opcao
 
 def cadastrar_participantes(nome_evento):
     participante = {
@@ -19,9 +19,8 @@ def validacao_datanasc():
         datetime.datetime.strptime(data_nascimento, "%d/%m/%Y")
         return data_nascimento
     except ValueError:
-        pass
-    print("Inválido! O campo data de nascimento aceita apenas numeros no formato dia/mês/ano, tente novamente!")
-    return -1
+        print("Inválido! O campo data de nascimento aceita apenas numeros no formato dia/mês/ano, tente novamente!")
+
 
 
 def validacao_cpf():
@@ -30,6 +29,27 @@ def validacao_cpf():
         if len(cpf)==11:
             return cpf
     except ValueError:
-        pass
-    print("Inválido! O campo cpf aceita apenas números, tente novamente!")
-    return -1
+        print("Inválido! O campo cpf aceita apenas números, tente novamente!")
+
+
+
+def cadastrar_participante_evento(eventos):
+    print(" ")
+    print("Eventos disponíveis:")
+    for indice, evento in enumerate(eventos):
+        print(f"{indice +1} - {evento['nome']}")
+
+    opcao = ler_opcao(len(eventos))
+    evento = eventos[opcao - 1]
+    nome_evento = evento['nome']
+
+    novo_participante = cadastrar_participantes(nome_evento)
+
+    # Verifica duplicidade pelo CPF
+    for p in evento['participantes']:
+        if p['cpf'] == novo_participante['cpf']:
+            print("Participante já cadastrado neste evento!")
+            return
+
+    evento['participantes'].append(novo_participante)
+    print("Participante cadastrado com sucesso!")
