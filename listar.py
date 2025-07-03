@@ -77,6 +77,7 @@ def listar_todos_eventos():
                 print(f"Nome: {participante.get('nome')}")
                 print(f"CPF: {participante.get('cpf')}")
                 print(f"Data de nascimento: {participante.get('data_nasc')}")
+        print("-" * 30)
             
 def listar_participantes():
     limpar_tela()

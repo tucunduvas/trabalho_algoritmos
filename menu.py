@@ -3,7 +3,7 @@ from evento_registro import cadastrar_evento
 from listar import listar_evento
 from listar import listar_participantes
 import alterar as a
-from remover import remover_participante
+from remover import remover_participante_menu
 # from filtro import filtro_tema
 # from filtro import filtro_mes
 # from filtro import filtro_qntd_participantes
@@ -15,6 +15,7 @@ from saida import sair
 from remover import remover_evento
 from filtro import menu_mes
 from filtro import menu_geracoes
+from indicadores import mostrar_indicadores
 
 def menu_principal():
     while True:
@@ -105,7 +106,7 @@ def menu_remocao():
     opcao = ler_opcao(3)
     
     opcoes = {
-        1: remover_participante,
+        1: remover_participante_menu,
         2: remover_evento,
         4: None
     }
@@ -130,9 +131,11 @@ def menu_filtros():
     
     if opcoes.get(opcao):
         opcoes[opcao]()
-    
+
 def indicadores():
-    pass 
+    limpar_tela()
+    mostrar_indicadores()
+    input("Enter - Volta para o Menu")
 
 
 

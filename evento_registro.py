@@ -50,6 +50,13 @@ eventos = [
             },
             {
                 'id': f"p{uuid.uuid4()}",
+                'nome': "Ygor Guilherme",
+                'cpf': "377.345.990-33",
+                'data_nasc': "10/05/2006",
+                'evento_cadastrado': "Feira de Startups"
+            },
+            {
+                'id': f"p{uuid.uuid4()}",
                 'nome': "Daniel Rocha",
                 'cpf': "444.444.444-44",
                 'data_nasc': "22/03/1988",
