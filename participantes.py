@@ -1,4 +1,3 @@
-from random import randint
 import datetime
 import uuid
 from entrada import ler_opcao

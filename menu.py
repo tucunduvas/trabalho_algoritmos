@@ -4,31 +4,26 @@ from listar import listar_evento
 from listar import listar_participantes
 import alterar as a
 from remover import remover_participante_menu
-# from filtro import filtro_tema
-# from filtro import filtro_mes
-# from filtro import filtro_qntd_participantes
-# from filtro import filtro_idade
 from entrada import ler_opcao
 from saida import sair
-# from remover import remover_todos_eventos
-# from remover import remover_evento_especifico
 from remover import remover_evento
 from filtro import menu_mes
 from filtro import menu_geracoes
 from indicadores import mostrar_indicadores
 from participantes import cadastrar_participante_evento
 from evento_registro import eventos
+
 def menu_principal():
     while True:
         limpar_tela()
         print("___ MENU ___")
-        print("1 - Cadastrar evento")
+        print("1 - Cadastrar evento e participantes")
         print("2 - Listar eventos")
         print("3 - Alterar informações")
         print("4 - Remover")
         print("5 - Filtrar")
         print("6 - Visualizar indicadores")
-        print("0 - sair")
+        print("0 - Sair")
         opcao = ler_opcao(7)
         
         opcoes = {
@@ -50,7 +45,7 @@ def menu_cadastro():
         limpar_tela()
         print("__ Cadastrar __")
         print(" 1 - Cadastrar evento")
-        print(" 2 - Cadastrar participante")
+        print(" 2 - Cadastrar participante em evento existente")
         print(" 3 - Voltar")
         opcao = ler_opcao(3)
         
@@ -121,15 +116,14 @@ def menu_filtros():
     limpar_tela()
     print("__Filtros__")
     print("1 - Filtrar os eventos por mês")
-    print("2- Filtrar os eventos por quantidade de participantes")
-    print("3 - Filtrar os participantes por geração")
-    print("5 - Voltar")
+    print("2 - Filtrar os participantes por geração")
+    print("3 - Voltar")
     opcao = ler_opcao(5)
     
     opcoes = {
         1: menu_mes,
-        3: menu_geracoes,
-        5: None
+        2: menu_geracoes,
+        3: None
     }
     
     if opcoes.get(opcao):
@@ -138,8 +132,6 @@ def menu_filtros():
 def indicadores():
     limpar_tela()
     mostrar_indicadores()
-    input("Enter - Volta para o Menu")
-
 
 
 

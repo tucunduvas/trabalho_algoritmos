@@ -11,7 +11,7 @@ def menu_mes():
         
         if not eventos:
             print("Nenhum evento cadastrado.")
-            input("\nAperte a tecla Enter para voltar")
+            input("Pressione a tecla Enter para retornar")
             return
 
         print("Deseja ver os eventos de qual mês?")
@@ -58,7 +58,7 @@ def menu_geracoes():
         limpar_tela()
         if not todos_participantes:
             print("Nenhum participante cadastrado.")
-            input("\nAperte a tecla Enter para voltar")
+            input("Pressione a tecla Enter para retornar")
             return
             
         print("Deseja ver os participantes de qual geração?")
