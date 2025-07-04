@@ -27,31 +27,31 @@ Cadastro
 
 Listagem
 
-Visualizar todos os eventos registrados.
-Ver os detalhes completos de um evento específico.
-Listar todos os participantes de todos os eventos.
+* Visualizar todos os eventos registrados.
+* Ver os detalhes completos de um evento específico.
+* Listar todos os participantes de todos os eventos.
 
 
 Alteração
 
-Editar informações dos eventos.
+* Editar informações dos eventos.
 
 Remoção
 
-Remover qualquer participante cadastrado.
-Excluir eventos específicos ou todos os eventos de uma só vez.
+* Remover qualquer participante cadastrado.
+* Excluir eventos específicos ou todos os eventos de uma só vez.
 
 Filtros
 
-Buscar eventos por mês de realização.
-Filtrar participantes por geração (Baby Boomers, Geração X, Millennials, Geração Z, Alpha).
+* Buscar eventos por mês de realização.
+* Filtrar participantes por geração (Baby Boomers, Geração X, Millennials, Geração Z, Alpha).
 
 Indicadores
 
-Total de eventos e participantes.
-Evento mais popular.
-Média de participantes por evento.
-Distribuição etária dos inscritos (por geração).
+* Total de eventos e participantes.
+* Evento mais popular.
+* Média de participantes por evento.
+* Distribuição etária dos inscritos (por geração).
 
 Gerações Reconhecidas
 
@@ -65,11 +65,11 @@ Gerações Reconhecidas
 
 Técnicas Aplicadas
 
-Validação de dados** com `strptime` para datas e regras específicas para CPF e CEP.
-Organização em módulos**, permitindo reutilização de funções e melhor legibilidade.
-Uso de `UUID`** para garantir unicidade dos IDs de eventos e participantes.
-Agrupamento e contagem por geração**, facilitando relatórios demográficos.
-Menus interativos** com tratamento de exceções (`try/except`).
+* Validação de dados** com `strptime` para datas e regras específicas para CPF e CEP.
+* Organização em módulos**, permitindo reutilização de funções e melhor legibilidade.
+* Uso de `UUID`** para garantir unicidade dos IDs de eventos e participantes.
+* Agrupamento e contagem por geração**, facilitando relatórios demográficos.
+* Menus interativos** com tratamento de exceções (`try/except`).
 
 
 ---
