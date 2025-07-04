@@ -6,6 +6,7 @@ from saida import sair
 def remover_evento():
     limpar_tela()
     while True:
+        print(" ")
         print("___Qual evento deseja remover?___")
         print("1 - Todos")
         print("2 - Voltar")
@@ -42,6 +43,7 @@ def remover_participante(opcao, lista):
     nome = evento['participantes'][indice]['nome']
     del evento['participantes'][indice]
     print(f"Participante '{nome}' removido com sucesso.")
+    print(" ")
     input("\nAperte Enter para continuar")
 
 def remover_participante_menu():
