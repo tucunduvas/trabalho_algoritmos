@@ -130,7 +130,7 @@ def validar_data():
 
 def validar_cep():
     while True:
-        cep = input(("Digite o CEP, ultilizando apenas números: "))
+        cep = input(("Digite o CEP, ultilizando apenas números, o cep deve conter 8 digítos: "))
         try:
             if len(cep)==8 and cep.isdigit(): 
                 return cep

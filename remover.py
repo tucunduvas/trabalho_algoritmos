@@ -55,7 +55,6 @@ def remover_participante_menu():
         lista_participantes = []
         contador = 3
 
-        # Listar todos os participantes de todos os eventos
         for evento in eventos:
             participantes = evento.get('participantes', [])
             for i, participante in enumerate(participantes):
@@ -66,7 +65,7 @@ def remover_participante_menu():
         if not lista_participantes:
             print("Nenhum participante cadastrado.")
             input("Pressione Enter para voltar")
-            break  # Sai do menu se não houver participantes
+            break  
 
         try:
             opcao = int(input("Escolha uma opção: "))

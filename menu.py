@@ -18,7 +18,7 @@ def menu_principal():
         limpar_tela()
         print("___ MENU ___")
         print("1 - Cadastrar evento e participantes")
-        print("2 - Listar eventos")
+        print("2 - Listar eventos e participantes")
         print("3 - Alterar informações")
         print("4 - Remover")
         print("5 - Filtrar")

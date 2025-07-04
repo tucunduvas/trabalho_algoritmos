@@ -23,13 +23,14 @@ def validacao_datanasc():
 
 
 def validacao_cpf():
-    cpf = input(("Digite  o cpf do participante, com apenas números: "))
-    try: 
-        if len(cpf)==11:
+    while True:
+        cpf = input("Digite o CPF do participante, com apenas números, o cpf deve conter 11 digítos: ").strip()
+        if not cpf.isdigit():
+            print("Inválido! O CPF deve conter apenas números.")
+        elif len(cpf) != 11:
+            print("Inválido! O CPF deve conter exatamente 11 dígitos.")
+        else:
             return cpf
-    except ValueError:
-        print("Inválido! O campo cpf aceita apenas números, tente novamente!")
-
 
 
 def cadastrar_participante_evento(eventos):
@@ -44,7 +45,6 @@ def cadastrar_participante_evento(eventos):
 
     novo_participante = cadastrar_participantes(nome_evento)
 
-    # Verifica duplicidade pelo CPF
     for p in evento['participantes']:
         if p['cpf'] == novo_participante['cpf']:
             print("Participante já cadastrado neste evento!")
