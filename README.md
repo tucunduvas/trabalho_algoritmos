@@ -20,40 +20,40 @@ O sistema está dividido em módulos, com responsabilidades específicas:
 
 Funcionalidades do Projeto
 
-Cadastro
+##Cadastro
 
 * Adicionar novos eventos com ID único e endereço completo.
 * Inscrever participantes com CPF e data de nascimento válidos.
 
-Listagem
+##Listagem
 
 * Visualizar todos os eventos registrados.
 * Ver os detalhes completos de um evento específico.
 * Listar todos os participantes de todos os eventos.
 
 
-Alteração
+##Alteração
 
 * Editar informações dos eventos.
 
-Remoção
+##Remoção
 
 * Remover qualquer participante cadastrado.
 * Excluir eventos específicos ou todos os eventos de uma só vez.
 
-Filtros
+##Filtros
 
 * Buscar eventos por mês de realização.
 * Filtrar participantes por geração (Baby Boomers, Geração X, Millennials, Geração Z, Alpha).
 
-Indicadores
+##Indicadores
 
 * Total de eventos e participantes.
 * Evento mais popular.
 * Média de participantes por evento.
 * Distribuição etária dos inscritos (por geração).
 
-Gerações Reconhecidas
+##Gerações Reconhecidas
 
 | Geração       | Idade (em anos) |
 | ------------- | --------------- |
@@ -63,7 +63,7 @@ Gerações Reconhecidas
 | Geração Z     | 12 - 27         |
 | Geração Alpha | 0  - 11         |
 
-Técnicas Aplicadas
+##Técnicas Aplicadas
 
 * Validação de dados** com `strptime` para datas e regras específicas para CPF e CEP.
 * Organização em módulos**, permitindo reutilização de funções e melhor legibilidade.
@@ -74,7 +74,5 @@ Técnicas Aplicadas
 
 ---
 
-Como Executar
-
-Execute o arquivo principal (main.py)
+Execute o arquivo principal (main.py) para testar o sistema
 
